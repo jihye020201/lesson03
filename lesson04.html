@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+        body {margin: 0; padding: 0;}
+        a {margin-left: 10px; color: white; text-decoration: none;}
+        a:hover{color:rgb(255, 204, 204) !important;}
+        header {overflow: hidden; transition: all 1s; height: 100px; background-color: rgba(0,0,0,0.5); position: fixed; top: 0; left: 0; width: 100%}
+        /*transition: all 1s;는 서서히 변함. width를 주지않으면 fixd는 눈에 보이지 않는다*/
+        header:hover {
+            background-color: rgba(255, 255, 255, 0.695);
+
+        }
+        header.over {background-color: white;}
+        header.over h1 a {color: black;}
+        section {height: 100vh; background-color: aqua;}
+        section:nth-of-type(1) {background-image: url(sorasak-_UIN-pFfJ7c-unsplash.jpg); background-repeat: no-repeat; background-size: 100%;}
+        section:nth-of-type(2) {background-image: url(tianshu-liu-SBK40fdKbAg-unsplash.jpg);background-size: 100%;}
+        section:nth-of-type(3) {background-image: url(denys-nevozhai-D68ADLeMh5Q-unsplash.jpg);background-size: 100%;}
+        section:nth-of-type(4) {background-image: url(photo1.avif);background-size: 100%;}
+        footer {
+            background-color: gray;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-content {
+            text-align: center;
+            color: white;
+        }
+
+        .footer-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .footer-content p {
+            font-size: 16px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            float: right;
+            margin-right: 10px;
+            margin-top: 20px;
+            }
+
+            ul {
+            list-style: none;
+            display: flex;
+            }
+
+            li {
+            margin: 0 10px;
+            }
+
+            a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            }
+
+            a:hover {
+            color: rgb(255, 204, 204) !important;
+            }
+
+            header.over {
+            background-color: white;
+            }
+            .h1{
+                float: right;
+            }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <h1><a href="#">JAPAN</a></h1>
+    </header>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <footer>
+        <div class="footer-content">
+            <h2>I LOVE JAPAN</h2>
+            <p>010-casm-dnsa</p>
+            <p>jipan@cuanjasd.sadknmo</p>
+        </div>
+    </footer>
+    <script>
+        //마우스 이벤트
+        /*consol.log(document.getElementById("header"));
+        document.getElementById("header").onmouseover = function(){
+            consol.log("마우스 오버");
+            document.getElementById("header").style.backgroundColor = "white";
+        }
+        document.getElementById("header").onmouseout = function(){
+            consol.log("마우스 아웃");
+            document.getElementById("header").style.backgroundColor = "rgba(0,0,0,0.5)";
+        }*/
+
+        var myHeader = document.getElementById("header");
+        myHeader.onmouseover = function(){
+            consol.log(this);
+            consol.log(myHeader);
+            this.classList.add("over")
+            /*myHeader대신에 this를 넣어 코드를 더 깔끔하게 한다*/this.style.backgroundColor = "white";
+        }
+        myHeader.onmouseout = function(){
+            this.classList.remove("over")
+            /*consol.log("마우스 아웃");*/
+            /*myHeader this.style.backgroundColor = "rgba(0,0,0,0.5)";*/
+        }
+        //스크롤 이벤트
+        window.addEventListener("scroll", function(){
+            console.log("window.scrollY");
+            /*자바스크립트 스트롤바 높이*/
+            if(window.scrollY > 200){
+                console.log("220이상");
+                myHeader.style.height = 0;
+                /*myHeader.classList.remove("down")
+                myHeader.classList.remove("up")*/
+                /*상단에 herder추가 필요*/            }
+            else{
+            console.log("220미만");
+            myHeader.style.height = 100 + "px";
+            /*myHeader.classList.remove("down")
+                myHeader.classList.remove("up")*/
+            }
+        });
+    </script>
+    
+</body>
+</html>
+<!--background-repeat: no-repeat; background-size: 100%;-->
+<!--조건문-->
